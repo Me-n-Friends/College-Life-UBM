@@ -1,0 +1,93 @@
+Binary Tree
+
+implementasi
+disarankan: gunakan linked-list based binary tree
+linked-list : double linked-list
+
+
+//define struct
+//==============
+struct theCell
+{
+  int dat;
+  struct theCell *left;
+  struct theCell *right;
+}
+//deklarasi variabel
+//===================
+struct theCell *root, *ptr, *temp{kalau perlu, kalau gak perlu gak usah};
+
+apakah perlu variabel leaf? perlu sih tapiiiiii masalahnyaa......
+apakah kita memungkinkan memiliki variabel leaf? Tidak, karena jumlah tidak bisa di prediksi.
+
+
+Root dan Leaf
+order pengisian --> urutan pengisian
+(pengaruh ke tree traversal)
+- left to right 
+- right to left
+
+void isiBinaryTree(struct theCell isi)
+{
+  //proses pengisian left-to-right
+  if (root==NULL)
+  {
+    temp = (struct theCell *) malloc(sizeof(struct theCell))'
+    root = temp
+  }
+  else
+  {
+    ptr=root;
+    temp = NULL;
+    while (temp==NULL)
+    {
+      if (ptr->dat > isi->dat)
+      {
+        if (ptr->left == NULL)
+        {
+          //jadikan anaknya left
+          temp =(struct theCell *) malloc(sizeof(struct theCell))
+          ptr->left = temp;
+        } else
+        {
+          ptr=ptr->left
+        }
+      }
+      else
+      {
+        if (ptr->right == NULL)
+        {
+          //jadikan anaknya right
+          temp = (struct theCell *) malloc(sizeof(struct theCell))
+          ptr->right = temp;
+        } else
+        {
+          ptr=ptr->right
+        }
+      }
+    }
+  }
+  temp->dat = isi->dat;
+  temp->left = NULL;
+  temp->right = NULL;
+}
+
+tree traversal --> tiga notasi 
+V --> visit : dikunjungi untuk diakses
+L --> Left : menuju ke kiri dari simpul
+R --> Right : menuju ke kanan dari simpul
+
+tree traversal order
+- inOrder Binary Tree Traversal (LVR)
+- postOrder Binary Tree Traversal (LRV)
+- preOrder Binary Tree Traversal (VLR)
+
+inOrder Traversal (LVR)
+mencoba melakukan kunjungan ke kiri, terus sampai mentok
+kalau sudah mentok, kunjungi node terakhir yang tidak ada kirinya lagi
+coba ke kanan, kalau bisa ke kanan ya kekanan kalau gak bisa, backtrack (kembali ke node sebelumnya)
+
+successor dan predessor
+lengkapnya successor inorder traversal, successor postorder traversal, successor preorder traversal, 
+predessor inorder traversal, predessor postorder traversal, dan predessor preorder traversal
+

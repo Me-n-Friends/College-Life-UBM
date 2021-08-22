@@ -1,0 +1,192 @@
+bonus
+andrew 2PTI 20
+timoti 2PTI1 20
+franklin 2PTI2 10 
+STEVANUS 2pti2 10
+
+
+Queue / antrian --> metode akses / aturan utama : First In - First Out
+yang pertama kali masuk akan diakses / dikeluarkan untuk dipergunakan pertama kali
+
+contoh queue --> antrian, tabung penyimpanan kok badminton
+
+operasi2
+1. firstEl() : perlu return value
+2. enQueue(el) : perlu parameter : andrew 2PTI 10
+3. deQueue() : perlu return value : andrew 2PTI 10
+4. clear() atau empty() : tidak perlu RV dan tidak parameter : timoti 2PTI1 20
+5. isEmpty() : return value : franklin 2PTI2 10 
+
+
+queue
+1. array base queue (saran biasakan menggunakan struct meskipun hanya satu field)
+2. linked-base queue (saran double linked)
+
+
+
+array base queue
+=======================
+//define struct
+struct recPool
+{
+  int dat;
+  int isi;
+}
+
+//deklarasi
+struct recPool pool[256];
+
+
+ada dua kondisi penuh yaitu
+- jika First=0 dan last = maxPool
+- jika (first = last+1) atau (last=first-1)
+
+void enQueue(el)
+{
+  if(first==0) and (last>=maxPool)
+  or (last+1==first)
+  {
+    if (last=-1) //kosong atau gak?
+    {
+      last = 0;
+      first = 0;
+    }
+    else
+    {
+      if(last>=maxPool)  
+        last=0
+      else
+        last=last+1
+    }
+    pool[last].dat = el.dat;
+    pool[last].isi = el.isi;
+  }
+}
+
+struc recPool deQueue()
+{
+  if (last != -1)
+  {
+    struct recPool tampung;
+    tampung.dat = pool[first].dat;
+    tampung.isi = pool[first].isi;
+    if (first < maxPool)
+      first=first+1
+    else
+      first = 0;
+    return tampung;
+  }
+}
+
+struct recPool firstEl()
+{
+  if (last != -1)
+  {
+    struct recPool tampung;
+    tampung.dat = pool[first].dat;
+    tampung.isi = pool[first].isi;
+    return tampung;
+  }
+}
+
+bool isEmpty()
+{
+  if(first==-1)
+    return TRUE
+  else
+    return FALSE;
+}
+
+void empty()
+{
+  first = -1;
+  last = -1;
+}
+
+
+linked-list base queue
+=======================
+
+//define struct
+struct recPool
+{
+  int dat;
+  int isi;
+  struct recPool *prev;
+  struct recPool *next;
+}
+
+//deklarasi
+struct recPool *head=NULL, *tail=NULL;
+apakah perlu variabel ptr?
+
+void enQueue(el)
+{
+  if (head==NULL)
+  {
+    tail = (struct recPool *)malloc(sizeof(struct recPool));
+    head = tail;
+    head->prev = NULL;
+    tail->next = NULL;
+  } else
+  {
+    tail->next=(struct recPool *)malloc(sizeof(struct recPool));
+    tail->next->prev = tail;
+    tail=tail->next;
+    tail->next = NULL;
+  }
+  tail->dat = el.dat;
+  tail->isi = el.isi;
+}
+
+struct recPool firstEl()
+{
+  struct recPool tampung;
+  if(head != NULL)
+  {
+    tampung.dat = head->dat;
+    tampung.isi = head->isi;    
+  }
+  return tampung
+}
+
+struct recPool deQueue()
+{
+  struct recPool tampung;
+  if(head != NULL)
+  {
+    tampung.dat = head->dat;
+    tampung.isi = head->isi;    
+    if (head->next != NULL)
+    {
+      head=head->next;
+      free(head->next->prev);
+      head->next->prev = NULL
+    }
+    else
+    { 
+      free(head);
+      head=NULL;
+      tail=NULL;
+    }
+  }
+  return tampung
+}
+
+
+bool isEmpty()
+{
+  if(head==NULL)
+    return TRUE
+  else
+    return FALSE;
+}
+
+
+void empty()
+{
+  while (head != NULL)
+  {
+    deQueue();
+  }
+}

@@ -1,0 +1,205 @@
+hapus node/simpul tree
+
+disarankan menggunakan linked-list based
+
+tree traversal : algoritma back-tracking
+it-club :  tolong dihidupkan
+lomba ICPC
+hunting lomba-lomba ICPC (binus, maranatha, UK-Petra)
+
+pak kalau nggak ngerti back-tracking
+
+algoritma backtracking adalah cara licik para programmer untuk mengalihkan algoritma yang rumit menjadi algoritma rekursif back-tracking.
+
+struct theCell
+{
+  int dat;
+  struct theCell *kiri;
+  struct theCell *kanan;
+}
+
+struct theTampung
+{
+  int dat;
+}
+
+int n;
+struct theTampung tampung[256];
+
+void inOrderTrav(struct TheCell *travCell)  //LVR
+{
+  //LEFT
+  if (travCell->kiri != NULL) 
+    inOrderTrav(travCell->kiri);
+  //VISIT
+  //cout<<travCell->dat<<" | ";
+  n++;
+  tampung[n].dat = travCell->dat;
+  //RIGHT
+  if (travCell->kanan != NULL)
+    inOrderTrav(travCell->kanan);
+}
+
+void preOrderTrav(struct TheCell *travCell) //VLR
+{
+  //VISIT
+  //cout<<travCell->dat<<" | ";
+  n++;
+  tampung[n].dat = travCell->dat;
+  //LEFT
+  if (travCell->kiri != NULL) 
+    preOrderTrav(travCell->kiri);
+  //RIGHT
+  if (travCell->kanan != NULL)
+    preOrderTrav(travCell->kanan);
+}
+
+void postOrderTrav(struct TheCell *travCell) //LRV
+{
+  //LEFT
+  if (travCell->kiri != NULL) 
+    postOrderTrav(travCell->kiri);
+  //RIGHT
+  if (travCell->kanan != NULL)
+    postOrderTrav(travCell->kanan);
+  //VISIT
+  //cout<<travCell->dat<<" | ";
+  n++;
+  tampung[n].dat = travCell->dat;
+}
+
+
+
+
+void main()
+{
+  //isi tree
+  .
+  .
+  .
+  n = -1;
+  inOrderTrav(root);
+  int i;
+  for(i=0; i<=n; i++)
+  {
+    cout<<tampung[i]<<endl;
+  }
+  
+}
+
+
+tiga cara untuk mendapatkan parent dari suatu node/simpul
+1. lakukan traversal inorder mulai dari root sampai di dapatkan sebuah simpul yang punya anak simpul yang mau dicari parentnya tersebut
+(panjang dong lama, wasting time)
+2. untuk memangkas traversal, bisa dilakukan dengan threaded tree
+costnya: cuma nambahin dua buah field bertipe boolean untuk menandai bahwa link kiri atau link kanan berfungi sebagai thread
+jadi tipenya harus boolean
+struct theCell
+{
+  int dat;
+  bool threadKiri;
+  bool threadKanan;
+  struct theCell *kiri;
+  struct theCell *kanan;
+}
+
+3. hanya perlu sebuah field link parent
+struct theCell
+{
+  int dat;
+  struct theCell *parent;
+  struct theCell *kiri;
+  struct theCell *kanan;
+}
+
+
+hapus tree
+- hapus simpul leaf
+mudah sekali karena gak punya keturunan
+- hapus simpul dengan 1 keturunan
+satu-satunya keturunan tersebut naik pangkat jadi pengganti yang dihapus
+- hapus simpul yang punya dua keturunan
+masalahnya adalah mana yang jadi pengganti dari simpul yang akan dihapus
+-- harus memperperhatikan rule binary:
+1. left-to-right order atau right-to-left order
+2. setiap simpul hanya boleh punya dua keturunan
+
+ada dua strategi
+- delete by merging
+- delete by copying
+
+contoh delete by copying
+void deleteNode(struct TheCell *travCell, int cari, struct TheCell *deleteCell)
+{
+  if (deleteCell==NULL)
+  {
+    //Cari node yang akan di hapus
+    if (travCell->dat == cari)
+    {
+      cout<<"Data terdapat pada record ke "<<travCell->id<<endl;
+      deleteNode(travCell, cari, travCell);
+    }
+    else
+    {
+      //traversal ke kiri
+      if (travCell->kiri != NULL)
+        deleteNode(travCell->kiri, cari, NULL);
+      //TRaversal ke kanan
+      if(travCell->kanan != NULL)
+        deleteNode(travCell->kanan, cari, NULL);
+    }
+  }
+  else
+  {
+    if(deleteCell->kanan == NULL)
+    {
+      //delete simpul dengan satu anak di kiri
+      /////////////////////////////////
+      if (deleteCell->induk == NULL)
+      {
+        //berarti root
+        rootCell = deleteCell->kiri;
+      } 
+      else
+      {
+        //jika tidak punya anak disebelah kanan, tempatkan left sbg pengganti
+        if(deleteCell->induk->kiri == deleteCell)
+          deleteCell->induk->kiri = deleteCell->kiri;
+        else if(deleteCell->induk->kanan == deleteCell)
+          deleteCell->induk->kanan = deleteCell->kiri;
+      }
+    }
+    else if (deleteCell->kiri == NULL)
+    {
+      //delete simpul dengan satu anak di kanan
+      /////////////////////////////////
+      if (deleteCell->induk == NULL)
+      {
+        //berarti root
+        rootCell = deleteCell->kanan;
+      } else
+      {
+        //jika tidak punya anak disebela kiri, tempatkan right sbg pengganti
+        if(deleteCell->induk->kiri == deleteCell)
+          deleteCell->induk->kiri = deleteCell->kanan;
+        else if(deleteCell->induk->kanan == deleteCell)
+          deleteCell->induk->kanan = deleteCell->kanan;
+      }
+    }
+    else
+    {
+      //////////////////////////
+      //delete by merging
+      /////////////////////////
+      if(deleteCell->induk->kiri == deleteCell)
+        deleteCell->induk->kiri = deleteCell->kiri;
+      else
+        deleteCell->induk->kanan = deleteCell->kiri;    
+      travCell=deleteCell->kiri;
+      while(travCell->kanan != NULL)
+        travCell = travCell->kanan;
+      travCell->kanan = deleteCell->kanan;
+    }
+    free(deleteCell);
+  }
+}

@@ -1,0 +1,12 @@
+Complete Graph Formula
+
+Size Kn = n(n-1) / 2
+Derajat Kn = n(n-1)
+
+Graph Sembarang
+Total Derajat = 2*Size
+
+graf dikatakan sirkuit euler dikatakan bila derajat semua simpulnya genap dan minimal 2 derajat
+hamiltonian tidak perlu semua busur, tetapi mencangkupi semua simpulnya. simpul dan busur hanya boleh dilewati tepat 1x
+sirkuit simpul hanya boleh tepat 1x
+cycle = lingkaran: lintasan tertutup-->lintasan ny hanya boleh 1x

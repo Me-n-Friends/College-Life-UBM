@@ -1,0 +1,179 @@
+stack - 
+
+TDA pada struktur data:
+stack, queue, tree dan binary tree, graph, dll
+
+dataset --> 2 basis
+1. berbasis array
+2. berbasis linked-list
+
+dataset untuk apa:
+untuk menampung data nya
+Felix 2PTI1 10
+
+datanya ditampung buat apa? untuk diolah
+kitbert 2PTI2 10
+
+berdasarkan dataset yang dipergunakan
+1. array base stack
+2. linked-list base stack
+
+mana yang  mudah --> untuk stack sama-sama mudah
+
+stack --> konsepnya adalah kita menumpuk data pada suatu dataset
+biasanya dataset pada stack kita sebut sebagai 'pool'
+element --> record yang tersusun pada dataset nya.
+
+element --> berisi informasi / data dalam satu record (satu record data set)
+contoh
+struct structMhs
+{
+  char nim[8];
+  char nama[20];
+}
+
+struct structMhs pool[256];
+cout<<pool[1].nim<<" "<<pool[1].nama<<endl;
+
+aturan dasar yang harus dipatuhi:
+element yang terakhir masuk adalah element yang akan dikeluarkan untuk diproses pertamakali (Last In First Out - LIFO)
+
+sebagaimana fuyngsinya TDA pada struktur data adalah untuk mempermudah proses pemrograman, maka aturan dasar ini harus dipenuhi jika tidak TDA nya gagal.
+
+operasi-operasi dasar stack
+(ada yang memerlukan parameter, ada yang memerlukan return value)
+
+- push() : memasukkan element ke dalam stack (selalu pada top stack)--> memerlukan parameter, tidak memerlukan return value (RV)
+void push(element) {franklin 2PTI2}
+
+- pop() : mengeluarkan element dari stack (selalu element yang pada top) --> mengeluarkan otomatis sambil di akses
+sruct namastruct pop() : perlu RV, secara default tidak perlu parameter
+- topEl() : membaca element pada topstack
+sruct namastruct topEl() : perlu RV, secara default tidak perlu parameter
+- isEmpty() : memeriksa apakah pool nya kosong atau tidak
+bool isEmpty() :  perlu RV, secara default tidak perlu parameter
+- empty() / clearStack() : mengosongkan pool
+void empty(): tidak perlu RV dan tidak perlu parameter
+
+Array base stack
+================
+//define struct
+struct recPool
+{
+  int dat;
+  //boleh field lagi
+}
+//deklarasi
+struct recPool pool[100];
+int ukuranStack;
+
+void push(struct recPool el)
+{
+  ukuranStack++;
+  pool[ukuranStack-1] = el;
+}
+
+struct recPool pop()
+{
+  struct recPool tampung = pool[ukuranStack-1];
+  ukuranStack--;
+  retrun tampung;
+}
+
+struct recPool topEl()
+{
+  retrun pool[ukuranStack-1];
+}
+
+bool isEmpty()
+{
+  if (ukuranStack>0)
+    return FALSE
+  else
+    return TRUE;
+}
+
+void empty()
+{
+  for(int i=0; i<ukuranStack; i++)
+  {
+    //isi sel array pool dg suatu nilai yang menandakan kosong
+  }
+  ukuranStack = 0;
+}
+
+
+void main()
+{
+  ukuranStack=0;  
+}
+
+linked-list base stack
+================
+semua element di masukkan dan diakses pada HEAD
+
+//define struct
+struct recPool
+{
+  int dat;
+  //boleh field lagi
+  struct recPool *next;
+}
+//deklarasi
+struct recPool *head=NULL, *temp;
+
+void push(struct recPool el)
+{
+  //push selalu HEAD
+  temp = malloc()
+  temp->dat = el.dat;
+  temp->next = head;
+  head = temp;
+}
+
+struct recPool pop()
+{
+  struct recPool tampung;
+  tampung.dat = head->dat;
+  temp = head;
+  head->next;
+  free(temp);
+  return tampung;
+}
+
+struct recPool topEl()
+{
+  struct recPool tampung;
+  tampung.dat = head->dat;
+  return tampung;
+}
+
+franklin bonus 10
+bool isEmpty() 
+{
+  if (head==NULL)
+    return TRUE
+  else
+    return FALSE;
+}
+
+void empty()
+{
+  //bersihkan dulu semua simpul
+  while (head != NULL)
+  {
+    temp = head;
+	head = head->next;
+	free(temp);
+  }
+}
+
+
+void main()
+{
+  ;  
+}
+
+
+
+

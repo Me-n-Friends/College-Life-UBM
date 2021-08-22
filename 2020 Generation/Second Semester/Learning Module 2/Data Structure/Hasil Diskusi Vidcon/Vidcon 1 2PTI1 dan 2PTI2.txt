@@ -1,0 +1,92 @@
+Struktur Data
+- Data dan Record
+- Data Set
+- TDA
+
+Data yang homogen Terkumpul menjadi DataSet
+Data --> dalam suatu Record Data
+Record / Struct --> struktur dari satu record / satu rekaman data
+dapat terdiri dari satu field saja atau lebih dari satu field
+int A; //A --> variabel, isinya data atau bukan? data //Andrew -2PTI2
+char B; --> isinya data juga
+
+Data Set --> sekumpulan data yang homogen
+a = {2, 3, 5, 7, 11, 13, 17, ...} dimana a adalah bilangan prima
+secara matematis, a kita sebut dataset.
+
+Record / struct
+Type
+  RecMhs = RECORD
+    nim : string[8];
+    nama : string[20];
+  end;
+
+var
+  mhsKeren : RecMhs;  //Felix 5 2PTI1
+  mhsKita  : Array[1..40] of RecMhs
+                      //bonus 20 dibuat menjadi array agar bisa banyak 
+                      //Vincent 2PTI2
+  a : array[1..100] of integer;
+  
+Struct RecMhs
+{
+  char nim[8];
+  char nama[20];
+}  
+
+struct RecMhs mhsKeren;
+struct RecMhs mhsKita[40]; indeksnya mulai dari 0 sampai 39
+
+
+int a; //bukan data set
+int a[100]; //data set atau bukan? ini adalah dataset //bonus 10 BERWYN 2PTI1
+
+Dataset dapat dibentuk menggunakan:
+- Array (smua jenis array)
+- Linked-list (semua jenis linked-list)
+  dapat kita bentuk menggunakan Pointer
+  selain itu dapat juga kita bentuk menggunakan Object pada PBO
+  kalau mau maksa, kita bisa pakai array menjadi linked-list
+
+Dataset dapat dibentuk menjadi TDA (Tipe Data Abstrak)
+ada dua Base TDA
+- Array Base TDA --> TDA yang berbasis Array 
+ (TDA yang *dataset* nya dibuat menggunakan array) (1D, 2D, 3D, multidimensi)
+- Linked-list Base TDA --> TDA yang berbasis Linked-List
+ (TDA yang *dataset* nya dibuat menggunakan Linked-List) (single-LL, Double LL, circular LL, DoubleCircular LL, Multiple LL)
+
+ tidak semua TDA mudah untuk diimplementasikan pada satu TDA
+ ada TDA yang lebih mudah dioperasikan dengan LL, ada TDA yang lebih mudah dioperasikan dengan ARRAY
+ 
+Dataset juga boleh langsung dipakai. nggak murtad dari Struktur Data kok.
+
+contoh TDA
+- Stack, Queue, Tree (binary tree maupun multiary-Tree), 
+Graph --> diimplementasikan menggunakan TDA, tapi juga bisa dianggap TDA
+
+Penelusuran Graph paling enak diimplementasikan pakai apa?
+//2PTI1 bonus 50
+//Marchelino 2PTI1 --10
+Array yang gimana? array 2 dimensi //Andrew 2PTI2 
+
+algoritma Djikstra
+matriks --> implementasi matriks lebih mudah pakai array 2dimensi meskipun bisa pakai double linked-list
+
+JAdi TDA itu apa? kita akan bahas minggu depan, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

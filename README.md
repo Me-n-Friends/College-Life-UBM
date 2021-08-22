@@ -5,3 +5,4 @@ Please refer to the following Pull Request [template](https://github.com/Me-n-Fr
 
 ### 2020 Genth
 - [1st Semester](https://github.com/Me-n-Friends/College-Life-UBM/tree/main/2020%20Generation/First%20Semester)
+- [2nd Semester](https://github.com/Me-n-Friends/College-Life-UBM/tree/main/2020%20Generation/Second%20Semester)

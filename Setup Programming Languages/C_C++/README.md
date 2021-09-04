@@ -26,22 +26,22 @@ int main()
 
 ## Instructions
 
-**1. Download Visual Studio Code from this [link.](https://code.visualstudio.com/Download)**
-**2. Download MinGW Compiler from this [link.](https://sourceforge.net/projects/mingw-w64/)**
-**3. Open the downloaded MinGW Compiler and check all the packages available, then Apply Changes.**
+**1. Download Visual Studio Code from this [link.](https://code.visualstudio.com/Download)** </br>
+**2. Download MinGW Compiler from this [link.](https://sourceforge.net/projects/mingw-w64/)** </br>
+**3. Open the downloaded MinGW Compiler and check all the packages available, then Apply Changes.** </br>
 ![MinGW Packages Installation](./MinGW_Packages.png) </br>
-**4. Update the PATH in Environment Variables.**
+**4. Update the PATH in Environment Variables.** </br>
 ![Environment Variables](./Environment_Variables.png) </br>
-**5. Go to PATH in System Variables.**
+**5. Go to PATH in System Variables.** </br>
 ![System Variables](./System_Variables.png) </br>
-**6. Then add the MinGW `/bin` directory to the PATH.**
+**6. Then add the MinGW `/bin` directory to the PATH.** </br>
 ![Edit Environment Variables](./Edit_Environment_Variables.png) </br>
-**7. Open your downloaded VSCode, go to Extensions.**
+**7. Open your downloaded VSCode, go to Extensions.** </br>
 ![VSCode](./VSCode.png) </br>
-**8. Search C/C++ & Code Runner Extensions and install it.**
+**8. Search C/C++ & Code Runner Extensions and install it.** </br>
 ![Extensions](./Extensions.png) </br>
 ![Code Runner](./Code_Runner.png) </br>
-**9. Go to VSCode Settings, in the search bar type `code-runner: Run in terminal` and check the box.**
-![Run in Terminal](./Run_in_Terminal.png)
-**10. Make your first C++ Program, and then run the code by pressing `Ctrl + Alt + N` or click the play button in the right corner.**
-![Run code](./Run_Code.png)
+**9. Go to VSCode Settings, in the search bar type `code-runner: Run in terminal` and check the box.** </br>
+![Run in Terminal](./Run_in_Terminal.png) </br>
+**10. Make your first C++ Program, and then run the code by pressing `Ctrl + Alt + N` or click the play button in the right corner.** </br>
+![Run code](./Run_Code.png) </br>

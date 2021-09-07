@@ -1,7 +1,8 @@
 # Configuring C/C++ Environment in VSCode
 ---
 
-## Tested: Windows 10
+## Tested: Windows 10 64bit
+
 ## Requirements:
 - **MinGW Compiler**
 - **Visual Studio Code** 

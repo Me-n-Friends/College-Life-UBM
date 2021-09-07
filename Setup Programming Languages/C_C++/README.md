@@ -11,6 +11,19 @@
 
 > C++ is a general-purpose programming languages developed by Bjarne Stroustrup. C++ was initially known as "C with classes" and was renamed C++ in 1983. C++ is used for Game Development, Reverse Engineering, Database, Desktop Application, Servers and many more. Usually, C++ is used to teach programming in college.
 
+## Syntax of C
+
+```
+#include <stdio.h>
+
+int main()
+{
+    printf("Hello World\n");
+    
+    return 0;
+}
+```
+
 ## Syntax of C++
 
 ```

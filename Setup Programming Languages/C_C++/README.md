@@ -41,7 +41,7 @@ int main()
 ## Instructions
 
 **1. Download Visual Studio Code from this [link.](https://code.visualstudio.com/Download)** </br>
-**2. Download MinGW Compiler from this [link.](https://sourceforge.net/projects/mingw-w64/) or by this [.exe](./mingw-get-setup.exe)** </br>
+**2. Download MinGW Compiler from this <!--[link.](https://sourceforge.net/projects/mingw-w64/) or by this--> [.exe](./mingw-get-setup.exe)** </br>
 **3. Open the downloaded MinGW Compiler and check all the packages available, then Apply Changes.** </br>
 ![MinGW Packages Installation](./MinGW_Packages.png) </br>
 **4. Update the PATH in Environment Variables.** </br>
